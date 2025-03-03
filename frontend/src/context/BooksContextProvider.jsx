@@ -16,12 +16,25 @@ const BookContextProvider = ({children}) => {
     }
   }
 
+  const deleteBook = async (id) => {
+    try{
+      await axios.post(BASE_URL + "/delete", {
+        id:id
+      }, {withCredentials:true})
+      setbooks((prev) => 
+        prev.filter(book => book.id !== id) 
+      )
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
   useEffect(() => {
     getBooks()
   }, [])
 
   return(
-    <BookContext.Provider value={{ books, getBooks }}>
+    <BookContext.Provider value={{ books, getBooks, deleteBook }}>
       {children}
     </BookContext.Provider>
   )

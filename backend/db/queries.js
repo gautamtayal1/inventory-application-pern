@@ -11,7 +11,14 @@ async function insertBook(name, author, stock, category_id) {
     [name, author, stock, category_id])
 }
 
+async function deleteBook(id) {
+  await pool.query(
+    "DELETE FROM books WHERE id = $1", [id]
+  );
+}
+
 module.exports = {
   getAllBooks,
-  insertBook
+  insertBook,
+  deleteBook
 }

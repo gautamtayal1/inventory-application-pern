@@ -4,10 +4,10 @@ import React, { useState } from 'react'
 const AddBook = () => {
 
   const BASE_URL = "http://localhost:3000"
-  const [name, setName] = useState("atomic habits")
-  const [author, setAuthor] = useState("james clear")
-  const [stock, setStock] = useState('200')
-  const [category, setCategory] = useState('')
+  const [name, setName] = useState("")
+  const [author, setAuthor] = useState("")
+  const [stock, setStock] = useState("")
+  const [category, setCategory] = useState("")
 
   const handleSubmit = async() => {
     try{
